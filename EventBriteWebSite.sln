@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{3C716FE5-E79
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{40A4A13A-709B-4E11-98DA-98DD0F9D2FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCatalogAPI", "EventCatalogAPI\EventCatalogAPI.csproj", "{1AC3BC34-EB91-4BB8-AE8B-9BE80BDCAAEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventCatalogAPI", "EventCatalogAPI\EventCatalogAPI.csproj", "{1AC3BC34-EB91-4BB8-AE8B-9BE80BDCAAEA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,26 @@ Global
 		{1AC3BC34-EB91-4BB8-AE8B-9BE80BDCAAEA}.Release|x64.Build.0 = Release|Any CPU
 		{1AC3BC34-EB91-4BB8-AE8B-9BE80BDCAAEA}.Release|x86.ActiveCfg = Release|Any CPU
 		{1AC3BC34-EB91-4BB8-AE8B-9BE80BDCAAEA}.Release|x86.Build.0 = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|ARM.Build.0 = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|x64.Build.0 = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|ARM.Build.0 = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|ARM64.Build.0 = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|x64.ActiveCfg = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|x64.Build.0 = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{0AECBD2A-FEEC-4477-8A89-DAB4D22006A8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

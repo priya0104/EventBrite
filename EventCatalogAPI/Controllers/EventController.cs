@@ -23,6 +23,7 @@ namespace EventCatalogAPI.Controllers
             _context = context;
             _config = config;
         }
+
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> Items([FromQuery] int pageIndex = 0, [FromQuery]int pageSize = 4)
@@ -45,6 +46,52 @@ namespace EventCatalogAPI.Controllers
             .Replace("http://externalcatalogbaseurltobereplaced/", _config["ExternalCatalogBaseUrl"]));
 
             return items;
+        }
+
+        [HttpGet]
+        [Route("[action]/type/{eventTypeId}/catagory/{eventCatagoryId}")]
+        public async Task<IActionResult> Items(
+            int? eventTypeId,
+            int? eventCatagoryId,           
+            [FromQuery] int pageIndex = 0,
+            [FromQuery]int pageSize = 4)
+        {
+            var root = (IQueryable<EventItem>)_context.EventItems;
+            if (eventTypeId.HasValue)
+            {
+                root = root.Where(e => e.EventTypeId == eventTypeId);
+            }
+
+            if (eventCatagoryId.HasValue)
+            {
+                root = root.Where(e => e.EventCatagoryId == eventCatagoryId);
+            }
+            var itemsCount = await root.LongCountAsync();
+            var items = await root
+                .OrderBy(e => e.Name)
+                .Skip(pageIndex * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            items = ChangePictureUrl(items);
+
+            return Ok(items);
+        }       
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> EventTypes()
+        {
+            var items = await _context.EventTypes.ToListAsync();
+            return Ok(items);
+        }
+
+        [HttpGet]
+        [Route ("[action]")]
+        public async Task<IActionResult> EventCatagories()
+        {
+            var items = await _context.EventCatagories.ToListAsync();
+            return Ok(items);
         }
     }
 }
