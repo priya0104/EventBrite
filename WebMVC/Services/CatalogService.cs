@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using WebMVC.Infrastructure;
 using WebMVC.Models;
 
@@ -22,11 +23,36 @@ namespace WebMVC.Services
             _baseUri = $"{config["EventCatalogUrl"]}/api/catalog/";
             _client = client;
         }
-        public Task<IEnumerable<SelectListItem>> GetCatagoriesAsync()
+        public async Task<IEnumerable<SelectListItem>> GetCatagoriesAsync()
         {
-            throw new NotImplementedException();
+            var catagoryUri = ApiPaths.EventCatalog.GetAllCatagories(_baseUri);
+            var dataString = await _client.GetStringAsync(catagoryUri);
+            //adding a list wich has "All" to a list of catagories
+            var items = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Value=null,
+                    Text = "All",
+                    Selected = true
+                }
+            };
+            //it converts the string into array
+            var catagories = JArray.Parse(dataString);
+            foreach(var catagory in catagories)
+            {
+                items.Add(
+                    new SelectListItem
+                    {
+                        Value = catagory.Value<string>("id"),
+                        Text = catagory.Value<string>("catagory")
+                    }
+                 );
+            }
+            return items;
         }
 
+        //pull the ApiPaths and fire the calls to HttpClient to get hte data
         public async Task<Catalog> GetEventItemsAsync(int page, int size, int? catagory, int? type)
         {
             var eventItemsUri = ApiPaths.EventCatalog.GetAllEventItems(_baseUri,
@@ -37,9 +63,29 @@ namespace WebMVC.Services
             return response;
         }
 
-        public Task<IEnumerable<SelectListItem>> GetTypesAsync()
+        public async Task<IEnumerable<SelectListItem>> GetTypesAsync()
         {
-            throw new NotImplementedException();
+            var typeUri = ApiPaths.EventCatalog.GetAllTypes(_baseUri);
+            var dataString = await _client.GetStringAsync(typeUri);
+            var items = new List<SelectListItem>
+            {
+                new SelectListItem
+                {
+                    Value = null,
+                    Text = "All",
+                    Selected = true
+                }
+            };
+
+            var types = JArray.Parse(dataString);
+            foreach(var type in types)
+            {
+                items.Add(new SelectListItem {
+                    Value = type.Value<string>("id"),
+                    Text = type.Value<string>("type")
+                });
+            }
+            return items;
         }
     }
 }

@@ -7,7 +7,7 @@ using WebMVC.Models;
 
 namespace WebMVC.Services
 {
-    interface IEventCatalogService
+    public interface IEventCatalogService
     {
         Task<Catalog>GetEventItemsAsync(int page, int size, int? catagory, int? type);
         Task<IEnumerable<SelectListItem>> GetCatagoriesAsync();
