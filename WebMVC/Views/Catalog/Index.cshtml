@@ -15,7 +15,7 @@
             <img src="~/images/banner.png" alt="ASP.NET" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    Incredible Engagement Rings.
+                    Home Workshop
                 </p>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <img src="~/images/banner-2.png" alt="Visual Studio" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    Diamond Engagement Rings are a thing!
+                    Yoga For Beginners
                 </p>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <img src="~/images/banner-3.png" alt="Package Management" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    Engagement rings are epitome of luxury.
+                    Saftey Fair.
                 </p>
             </div>
         </div>
@@ -50,10 +50,10 @@
 <section class="esh-catalog-filters">
     <div class="container">
         <form asp-action="Index" asp-controller="Catalog" method="post">
-            <label class="esh-catalog-label" data-title="brand">
+            <label class="esh-catalog-label" data-title="Catagory">
                 <select asp-for="@Model.CatagoryFilterApplied" asp-items="@Model.Catagories" class="esh-catalog-filter"></select>
             </label>
-            <label class="esh-catalog-label" data-title="type">
+            <label class="esh-catalog-label" data-title="Type">
                 <select asp-for="@Model.TypeFilterApplied" asp-items="@Model.Types" class="esh-catalog-filter"></select>
             </label>
             <input class="esh-catalog-send" type="image" src="~/images/arrow-right.svg" />

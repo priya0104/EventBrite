@@ -39,12 +39,12 @@ namespace EventCatalogAPI.Data
         {
             return new List<EventItem>()
             {
-                new EventItem() { EventCatagoryId=1,EventTypeId=2, Description = "will make you world champions", Name = "Homebuyers Workshop - Kirkland Library", Price= 88.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
+                new EventItem() { EventCatagoryId=1,EventTypeId=2, Description = "will make you world champions", Name = "Homebuyers Workshop - Kirkland Library", Price= 88.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/1" },
                 new EventItem() { EventCatagoryId=2,EventTypeId=1, Description = "will make you world champions", Name = "Kirkland Business Round Table", Price= 15.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
-                new EventItem() { EventCatagoryId=3,EventTypeId=2, Description = "will make you world champions", Name = "Startup 425 Foundations", Price= 17.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
-                new EventItem() { EventCatagoryId=2,EventTypeId=3, Description = "will make you world champions", Name = "NAIOMT C-725A Advanced Spinal Manipulation Part A", Price= 21.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
-                new EventItem() { EventCatagoryId=2,EventTypeId=1, Description = "will make you world champions", Name = "Yoga for Bigginers", Price= 30.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
-                new EventItem() { EventCatagoryId=3,EventTypeId=1, Description = "will make you world champions", Name = "Women's Self Defense Semina", Price= 150.00M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/2" },
+                new EventItem() { EventCatagoryId=3,EventTypeId=2, Description = "will make you world champions", Name = "Startup 425 Foundations", Price= 17.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/3" },
+                new EventItem() { EventCatagoryId=2,EventTypeId=3, Description = "will make you world champions", Name = "NAIOMT C-725A Advanced Spinal Manipulation Part A", Price= 21.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/4" },
+                new EventItem() { EventCatagoryId=2,EventTypeId=1, Description = "will make you world champions", Name = "Yoga for Bigginers", Price= 30.50M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/5" },
+                new EventItem() { EventCatagoryId=3,EventTypeId=1, Description = "will make you world champions", Name = "Women's Self Defense Semina", Price= 150.00M, PictureURI = "http://externalcatalogbaseurltobereplaced/api/pic/6" },
 
             };
         }

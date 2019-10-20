@@ -20,17 +20,22 @@ namespace WebMVC.Controllers
         public CatalogController(IEventCatalogService service) =>
             _service = service;
         
+        public async Task<IActionResult> About()
+        {
+            return View();
+        }
+
         //it is async because, we dont want UI to be blocked
         public async Task<IActionResult> Index(
-            int? catagoryFilterApplied,
-            int? typeFilterApplied,
+            int? CatagoryFilterApplied,
+            int? TypeFilterApplied,
             int? page)
         {
-            var itemsOnPage = 10;
+            var itemsOnPage = 5;
             //firing a service call
             var eventCatalog = 
                 await _service.GetEventItemsAsync(page ?? 0,
-                itemsOnPage, catagoryFilterApplied, typeFilterApplied);
+                itemsOnPage, CatagoryFilterApplied, TypeFilterApplied);
             var vm = new EventCatalogIndexViewModel
             {
                 PaginationInfo = new PaginationInfo
@@ -43,8 +48,8 @@ namespace WebMVC.Controllers
                 EventItems = eventCatalog.Data,
                 Catagories = await _service.GetCatagoriesAsync(),
                 Types = await _service.GetTypesAsync(),
-                CatagoryFilterApplied = catagoryFilterApplied ?? 0,
-                TypeFilterApplied = typeFilterApplied ?? 0
+                CatagoryFilterApplied = CatagoryFilterApplied ?? 0,
+                TypeFilterApplied = TypeFilterApplied ?? 0
             };
             vm.PaginationInfo.Previous = (vm.PaginationInfo.ActualPage == 0) ? "is-disabled" : "";
             vm.PaginationInfo.Next = (vm.PaginationInfo.ActualPage == vm.PaginationInfo.TotalPages-1) ? "is-disabled" : "";

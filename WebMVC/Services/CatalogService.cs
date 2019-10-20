@@ -20,7 +20,7 @@ namespace WebMVC.Services
         public CatalogService(IConfiguration config,
             IHttpClient client)
         {
-            _baseUri = $"{config["EventCatalogUrl"]}/api/catalog/";
+            _baseUri = $"{config["CatalogUrl"]}/api/event/";
             _client = client;
         }
         public async Task<IEnumerable<SelectListItem>> GetCatagoriesAsync()
@@ -45,7 +45,7 @@ namespace WebMVC.Services
                     new SelectListItem
                     {
                         Value = catagory.Value<string>("id"),
-                        Text = catagory.Value<string>("catagory")
+                        Text = catagory.Value<string>("catagoryName")
                     }
                  );
             }
@@ -82,7 +82,7 @@ namespace WebMVC.Services
             {
                 items.Add(new SelectListItem {
                     Value = type.Value<string>("id"),
-                    Text = type.Value<string>("type")
+                    Text = type.Value<string>("typeName")
                 });
             }
             return items;

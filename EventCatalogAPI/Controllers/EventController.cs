@@ -52,7 +52,7 @@ namespace EventCatalogAPI.Controllers
         private List<EventItem> ChangePictureUrl(List<EventItem> items)
         {
             items.ForEach(e => e.PictureURI = e.PictureURI
-            .Replace("http://externalcatalogbaseurltobereplaced/", _config["ExternalCatalogBaseUrl"]));
+            .Replace("http://externalcatalogbaseurltobereplaced", _config["ExternalCatalogBaseUrl"]));
 
             return items;
         }
