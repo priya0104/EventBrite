@@ -42,6 +42,24 @@ services:
     depends_on:
       - mssqlserver
     
+  cart:
+    build:
+      context: .\CartApi
+      dockerfile: Dockerfile
+    image: events/cartapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.29.215:6072
+      ConnectionString: basket.data
+    ports:
+      - "6073:80"
+    container_name: cartapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - basket.data
+      - tokenserver
 
   webmvc:
     build:
@@ -52,7 +70,7 @@ services:
     environment:
       CatalogUrl: http://event
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.3.140:6072
+      IdentityUrl: http://192.168.29.215:6072
       callBackUrl: http://localhost:6070
     ports:
       - "6070:80"
@@ -72,3 +90,12 @@ services:
       - "1448:1433"
     networks:
      - backend
+
+  basket.data:
+    image: redis
+    ports:
+      - "1449:6379"
+    networks:
+    - backend
+
+
