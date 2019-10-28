@@ -19,7 +19,7 @@ namespace WebMVC.Services
                     Email = claims.Claims.FirstOrDefault(
                         x => x.Type == "preferred_username")?.Value ?? "",
                     Id = claims.Claims.FirstOrDefault(
-                        x => x.Type == "sub")?.Value ?? "",
+                        x => x.Type == "name")?.Value ?? "",
                 };
                 return user;
             }

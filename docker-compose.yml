@@ -11,13 +11,14 @@ services:
       context: .\EventCatalogAPI
       dockerfile: Dockerfile
     environment:
+      ASPNETCORE_ENVIRONMENT: Development
       DatabaseServer: mssqlserver
       DatabaseName: EventCatalogDb
       DatabaseUser: sa
       DatabasePassword: ProductApi(!)
-      ExternalCatalogBaseUrl: http://localhost:6071
+      ExternalCatalogBaseUrl: http://localhost:6080
     ports:
-      - "6071:80"
+      - "6080:80"
     container_name: eventcatalog
     networks:
       - backend
@@ -32,9 +33,9 @@ services:
     image: events/tokenapi
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      MvcClient: http://localhost:6070
+      MvcClient: http://localhost:5208
     ports:
-      - "6072:80"
+      - "6071:80"
     container_name: tokenserviceapi
     networks:
       - backend
@@ -49,10 +50,10 @@ services:
     image: events/cartapi
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.29.215:6072
+      IdentityUrl: http://192.168.29.215:6071
       ConnectionString: basket.data
     ports:
-      - "6073:80"
+      - "6065:80"
     container_name: cartapi
     networks:
       - backend
@@ -70,31 +71,34 @@ services:
     environment:
       CatalogUrl: http://event
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.29.215:6072
-      callBackUrl: http://localhost:6070
+      IdentityUrl: http://192.168.29.215:6071
+      CallBackUrl: http://localhost:5208
+      CartUrl: http://cart
+
     ports:
-      - "6070:80"
+      - "5208:80"
     networks:
       - frontend
     depends_on:
       - event
       - tokenserver
+      - cart
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: ProductApi(!)
-    container_name: sqlserverevent
+    container_name: sqlservereventbrite
     ports:
-      - "1448:1433"
+      - "1584:1433"
     networks:
      - backend
 
   basket.data:
     image: redis
     ports:
-      - "1449:6379"
+      - "6079:6379"
     networks:
     - backend
 
