@@ -68,7 +68,7 @@ namespace WebMVC.Controllers
                         Id = Guid.NewGuid().ToString(),
                         Quantity = 1,
                         EventName = productDetails.Name,
-                        PictureUrl = productDetails.PictureURI,
+                        PictureUrl = productDetails.PictureUrl,
                         UnitPrice = productDetails.Price,
                         EventId = productDetails.Id
                     };
