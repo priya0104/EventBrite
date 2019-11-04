@@ -12,8 +12,8 @@
 
         <article class="esh-orders_new-items esh-orders_new-items--border row">
             <section class="esh-orders_new-item col-md-4 hidden-md-down">
-                <img class="esh-basket-image" src="@item.PictureUrl">
-                <input type="hidden" value="@item.PictureUrl" name=@("orderitems[" + i + "].PictureUrl") />
+                <img class="esh-basket-image" src="@item.PictureURI">
+                <input type="hidden" value="@item.PictureURI" name=@("orderitems[" + i + "].PictureURI") />
             </section>
             <section class="esh-orders_new-item esh-orders_new-item--middle col-xs-4">
                 @item.ProductName

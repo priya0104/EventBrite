@@ -129,7 +129,7 @@ namespace WebMVC.Services
                 {
                     ProductId = int.Parse(x.EventId),
 
-                    PictureUrl = x.PictureUrl,
+                    PictureURI = x.PictureUrl,
                     ProductName = x.EventName,
                     Units = x.Quantity,
                     UnitPrice = x.UnitPrice

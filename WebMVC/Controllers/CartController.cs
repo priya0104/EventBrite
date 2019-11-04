@@ -37,10 +37,10 @@ namespace WebMVC.Controllers
             Dictionary<string, int> quantities,
             string action)
         {
-            //if(action == "[checkout]")
-            //{
-            //    return RedirectToAction("Create", "Order");
-            //}
+            if (action == "[ Checkout ]")
+            {
+                return RedirectToAction("Create", "Order");
+            }
 
             try
             {
@@ -68,7 +68,7 @@ namespace WebMVC.Controllers
                         Id = Guid.NewGuid().ToString(),
                         Quantity = 1,
                         EventName = productDetails.Name,
-                        PictureUrl = productDetails.PictureUrl,
+                        PictureUrl = productDetails.PictureURI,
                         UnitPrice = productDetails.Price,
                         EventId = productDetails.Id
                     };

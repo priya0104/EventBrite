@@ -65,7 +65,7 @@ services:
         max-file: "10"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.29.215:6071
+      IdentityUrl: http://192.168.3.140:6071
       ConnectionString: basket.data
     ports:
       - "6065:80"
@@ -90,7 +90,7 @@ services:
         max-file: "10"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.29.215:6071
+      IdentityUrl: http://192.168.3.140:6071
       SQLSERVER_HOST: mssqlserver
       SA_PASSWORD: ProductApi(!)
       DATABASE: OrdersDb
@@ -119,7 +119,7 @@ services:
     environment:
       CatalogUrl: http://event
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.29.215:6071
+      IdentityUrl: http://192.168.3.140:6071
       CallBackUrl: http://localhost:5208
       CartUrl: http://cart
       OrderUrl: http://order
